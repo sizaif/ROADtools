@@ -36,16 +36,27 @@ from openpyxl import Workbook
 from openpyxl.styles import Font
 from openpyxl.styles import PatternFill
 
-from roadtools.roadlib.metadef.database import (
+# from roadtools.roadlib.metadef.database import (
+#     User, JSON, Group, DirectoryRole, ServicePrincipal, AppRoleAssignment,
+#     RoleAssignment, TenantDetail, Application, Device, OAuth2PermissionGrant
+# )
+# from roadtools.roadrecon.server import (
+#     user_schema, device_schema, group_schema, application_schema,
+#     td_schema, serviceprincipal_schema, users_schema, devices_schema,
+#     groups_schema, applications_schema, serviceprincipals_schema
+# )
+# import roadtools.roadlib.metadef.database as database
+# 引入本地包
+from roadlib.roadtools.roadlib.metadef.database import (
     User, JSON, Group, DirectoryRole, ServicePrincipal, AppRoleAssignment,
     RoleAssignment, TenantDetail, Application, Device, OAuth2PermissionGrant
 )
-from roadtools.roadrecon.server import (
+from roadrecon.roadtools.roadrecon.server import (
     user_schema, device_schema, group_schema, application_schema,
     td_schema, serviceprincipal_schema, users_schema, devices_schema,
     groups_schema, applications_schema, serviceprincipals_schema
 )
-import roadtools.roadlib.metadef.database as database
+import roadlib.roadtools.roadlib.metadef.database as database
 
 # Required property - plugin description
 DESCRIPTION = "Export data to an Excel file"

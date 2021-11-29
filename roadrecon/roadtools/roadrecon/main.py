@@ -2,8 +2,11 @@ import argparse
 import sys
 import os
 import importlib
-from roadtools.roadlib.auth import Authentication
-from roadtools.roadrecon.gather import getargs as getgatherargs
+# from roadtools.roadlib.auth import Authentication
+# from roadtools.roadrecon.gather import getargs as getgatherargs
+# 引入本地包
+from roadlib.roadtools.roadlib.auth import Authentication
+from roadrecon.roadtools.roadrecon.gather import getargs as getgatherargs
 RR_HELP = '''ROADrecon - The Azure AD exploration tool.
 By @_dirkjan - dirkjanm.io
 
@@ -111,16 +114,23 @@ def main():
             return
         auth.save_tokens(args)
     elif args.command == 'gui':
-        from roadtools.roadrecon.server import main as servermain
+        # from roadtools.roadrecon.server import main as servermain
+        # 引入本地包
+        from roadrecon.roadtools.roadrecon.server import main as servermain
         check_database_exists(args.database)
         servermain(args)
     elif args.command == 'gather' or args.command == 'dump':
-        from roadtools.roadrecon.gather import main as gathermain
+        #from roadtools.roadrecon.gather import main as gathermain
+        # 引入本地包
+        from roadrecon.roadtools.roadrecon.gather import main as gathermain
         gathermain(args)
     elif args.command == 'plugin':
         # Dynamic import
-        plugin_module = importlib.import_module('roadtools.roadrecon.plugins.{}'.format(args.plugin))
+        #plugin_module = importlib.import_module('roadtools.roadrecon.plugins.{}'.format(args.plugin))
+        # 引入本地包
+        from plugins.xlsexport import main as xlsmain
         check_database_exists(args.database)
-        plugin_module.main(args)
+        #plugin_module.main(args)
+        xlsmain(args)
 if __name__ == '__main__':
     main()
