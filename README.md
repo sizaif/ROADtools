@@ -55,3 +55,8 @@ You can run the Angular frontend with `npm start` or `ng serve` using the Angula
 
 ### Using ROADrecon
 See [this Wiki page](https://github.com/dirkjanm/ROADtools/wiki/Getting-started-with-ROADrecon) on how to get started.
+
+### 说明
+导入本地数据包，测试用
+1. 网页内容显示， 显示数据在`frontend/src/app` 目录下
+2. `xlsexport.py` 输出数据设置在`server.py`文件中
